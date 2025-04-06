@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Example</title>
+  <!-- رابط CSS الخاص بـ Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <!-- عنصر لعرض الخريطة -->
+  <div id="map" style="height: 600px;"></div>
+
+  <!-- رابط JavaScript الخاص بـ Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+  <script>
+    // إنشاء الخريطة وتحديد الإحداثيات والمستوى
+    var map = L.map('map').setView([51.505, -0.09], 13); // الإحداثيات للموقع الافتراضي (لندن في هذا المثال)
+    
+    // إضافة الطبقات (الخرائط التفاعلية)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // إضافة علامة (Marker) إلى الخريطة
+    L.marker([51.505, -0.09]).addTo(map)
+      .bindPopup("أنا هنا!")
+      .openPopup();
+  </script>
+</body>
+</html>
